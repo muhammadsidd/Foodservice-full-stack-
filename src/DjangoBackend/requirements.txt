@@ -1,0 +1,18 @@
+asgiref==3.3.1
+Django==3.0.5
+django-cors-headers==3.7.0
+djangorestframework==3.12.4
+djangorestframework-simplejwt==4.6.0
+djongo==1.3.4
+greenlet==1.0.0
+msgpack==1.0.2
+parso==0.8.2
+Pillow==8.1.2
+<<<<<<< HEAD
+PyJWT==1.7.1
+=======
+PyJWT==2.0.1
+>>>>>>> f0feea91af1094ba62ee1caf86fd83486456f8a0
+pymongo==3.11.3
+pytz==2021.1
+sqlparse==0.2.4

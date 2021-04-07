@@ -1,0 +1,31 @@
+<h2>List of Kitchen Users</h2>
+<div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+<button class="btn btn-primary" *ngIf="!isLoggedIn" (click)="kitchenUserCreate()">Register</button>
+<div *ngIf="kitchenUsers">
+    <table class="table">
+        <thead>
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>Username</b></td>
+                <td><b>First Name</b></td>
+                <td><b>Last Name</b></td>
+                <td><b>Email</b></td>
+                <td><b>Options</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of kitchenUsers">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="kitchenUserDetail(user)">View</button>
+                    <button class="btn btn-primary" *ngIf="isLoggedIn && user.id == getLoggedInUserId()" (click)="kitchenUserUpdate(user)">Update</button>
+                    <button class="btn btn-danger" *ngIf="isLoggedIn && user.id == getLoggedInUserId()" (click)="kitchenUserDelete(user)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+<!-- <div class="card" style="width: 18rem" *ngIf="kitchen"> -->
+<!--   <a [routerLink]="['/detail', kitchen.id]"> -->
+<!--     <img class="card-img-top" [src]="kitchen.image" alt="Card image cap" /> -->
+<!--   </a> -->
+<!--   <div class="card-body"> -->
+<!--     <h5 class="card-title">{{ kitchen.name }}</h5> -->
+<!--   </div> -->
+<!-- </div> -->
+
+<div
+  [ngClass]="{
+    'flip-card': parent === 'dashboard',
+    'detail-card': parent === 'detail'
+  }"
+  *ngIf="kitchen"
+>
+  <a [routerLink]="['detail', kitchen.id]">
+    <div [class.flip-card-inner]="parent === 'dashboard'">
+      <div [class.flip-card-front]="parent === 'dashboard'">
+        <img [src]="kitchen.image" />
+      </div>
+      <div [class.flip-card-back]="parent === 'dashboard'">
+        <h1 *ngIf="parent === 'dashboard'">{{ kitchen.name }}</h1>
+        <br *ngIf="!(parent === 'dashboard')" />
+        <div class="days">
+          <div *ngFor="let day of daysOfTheWeek">
+            <span
+              class="badge"
+              [class.badge-success]="workingDay(day)"
+              [class.badge-secondary]="!workingDay(day)"
+              >{{ day[0] | uppercase }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

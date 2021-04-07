@@ -1,0 +1,73 @@
+<!------------------------------- Kitchen ------------------------------->
+<app-kitchen *ngIf="kitchen" [props]="[kitchen, 'detail']"></app-kitchen>
+<!------------------------------- /Kitchen ------------------------------>
+
+<!--------------------------------- Menu -------------------------------->
+<div class="menu">
+  <h1 *ngIf="kitchen">{{ kitchen.name }} menu</h1>
+  <ul *ngIf="kitchen">
+    <li *ngFor="let plate of kitchen.menu">
+      <span>
+        {{ plate.name }}
+        <img [class.not-vegan]="!plate.vegan" src="assets/vegan.svg" alt="" />
+      </span>
+      <span>
+        <span>
+          {{ plate.price | currency }}
+        </span>
+        <span class="order">
+          <button
+            (click)="removePlate(plate.name)"
+            type="button"
+            class="btn btn-link"
+          >
+            -
+          </button>
+          <span *ngIf="order.items">
+            {{ order.items | getCount: plate.name }}
+          </span>
+          <button
+            (click)="addPlate(plate.name)"
+            type="button"
+            class="btn btn-link"
+          >
+            +
+          </button>
+        </span>
+      </span>
+    </li>
+    <li class="total">
+      <span>Total</span>
+      <span>{{ order.total | currency }}</span>
+    </li>
+  </ul>
+  <span class="buttons" *ngIf="kitchen">
+    <button
+      (click)="placeOrder()"
+      (click)="open(content)"
+      type="button"
+      class="btn btn-success"
+    >
+      Place Order
+    </button>
+  </span>
+</div>
+<!-------------------------------- /Menu -------------------------------->
+
+<!-------------------------------- Modal -------------------------------->
+<ng-template #content let-modal>
+  <div class="modal-body">
+    <span>Your order has been placed.</span>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      routerLink="/"
+      (click)="modal.dismiss()"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
+<!------------------------------- /Modal ------------------------------->

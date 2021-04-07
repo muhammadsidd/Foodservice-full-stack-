@@ -1,0 +1,44 @@
+<h2>My Kitchen</h2>
+<!-- <div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div> -->
+<button class="btn btn-primary" (click)="kitchenCreate()">
+  Create Kitchen
+</button>
+<div *ngIf="kitchen">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td><b>ID</b></td>
+        <td><b>Name</b></td>
+        <td><b>Featured</b></td>
+        <td><b>Phone Number</b></td>
+        <td><b>Email</b></td>
+        <td><b>Options</b></td>
+      </tr>
+    </thead>
+    <tbody *ngIf="kitchen">
+      <!-- <tr *ngFor="let kitchen of kitchens"> -->
+      <tr>
+        <td>{{ kitchen.id }}</td>
+        <td>{{ kitchen.name }}</td>
+        <td>{{ kitchen.featured ? "Yes" : "No" }}</td>
+        <td>{{ kitchen.user.phone_number }}</td>
+        <td>{{ kitchen.user.email }}</td>
+        <td>
+          <button
+            class="btn btn-primary"
+            [routerLink]="['/detail', kitchen.id]"
+          >
+            View
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="kitchenDelete()"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,153 @@
+<h2>Add Provider's Service</h2>
+<div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div>
+<form [formGroup]="kitchenForm" (ngSubmit)="Save(kitchenForm)">
+  <!-- Kitchen Indentifier -->
+
+  <h4>Kitchen {{ kitchenForm.value.name }}</h4>
+  <div>
+    <label for="addText">Name </label><br />
+    <input class="form-control" type="text" formControlName="name" />
+    <div class="field">
+      <div class="form-check">
+        <input
+          id="true"
+          class="form-check-input"
+          formControlName="featured"
+          type="radio"
+          [value]="true"
+        />
+        <label class="form-check-label" for="true"> Featured </label>
+      </div>
+      <div class="form-check">
+        <input
+          id="not-featured"
+          class="form-check-input"
+          formControlName="featured"
+          type="radio"
+          [value]="false"
+        />
+        <label class="form-check-label" for="not-featured">
+          Not Featured
+        </label>
+      </div>
+    </div>
+  </div>
+  <!--WORK DAYS CHECK BOX (PREVIOUS IMPLEMENTATION)-->
+
+  <!-- <div formArrayName="workdays"></div>
+    <label for="workdays">Work Days </label><br> -->
+  <!-- <div *ngFor = "let control of kitchenForm.controls.workdays['controls']; let i = index">
+        <input [formControl] = "control" type = "checkbox" id = "inlineCheckbox{{i}}" value = "option1">
+        <label for="inlineCheckbox{{i}}">{{days[i]}}</label> -->
+
+  <!-- WORKDAYS ARRAY -->
+
+  <div formArrayName="workdays">
+    <h5>Working days</h5>
+    <div
+      *ngFor="
+        let item of kitchenForm.controls.workdays['controls'];
+        let i = index
+      "
+      [formGroupName]="i"
+    >
+      <label for="day">Day</label><br />
+      <select class="form-control" id="day" formControlName="day">
+        <option selected [ngValue]="null">Choose...</option>
+        <option *ngFor="let item1 of days">{{ item1 }}</option>
+      </select>
+      <div class="field">
+        <span>
+          <label for="start_time">Start </label><br />
+          <select
+            class="form-control"
+            id="start_time"
+            formControlName="start_time"
+          >
+            <option selected [ngValue]="null">Choose...</option>
+            <option *ngFor="let item1 of timein">{{ item1 }}</option>
+          </select>
+        </span>
+        <span>
+          <label for="end_time">End </label><br />
+          <select class="form-control" id="end_time" formControlName="end_time">
+            <option selected [ngValue]="null">Choose...</option>
+            <option *ngFor="let item of timeout" [value]="item">
+              {{ item }}
+            </option>
+          </select>
+        </span>
+      </div>
+      <a class="btn btn-danger" (click)="removeWorkDay(i)">Remove Day</a>
+    </div>
+    <a class="btn btn-primary" (click)="addNewDay()">Add Day</a>
+  </div>
+  <!-- MENU ARRAY STARTS HERE -->
+
+  <h4>Menu</h4>
+  <div formArrayName="menu">
+    <div
+      *ngFor="let item of kitchenForm.controls.menu['controls']; let i = index"
+      [formGroupName]="i"
+    >
+      <h5 *ngIf="!item.value.name">Plate {{ i + 1 }}</h5>
+      <h5 *ngIf="item.value.name">{{ item.value.name }}</h5>
+      <!-- <label>Item Id</label><input class="form-control" type="text" formControlName="id" id="task{{i}}"> -->
+      <label>Name</label
+      ><input
+        class="form-control"
+        type="text"
+        formControlName="name"
+        id="task{{ i }}"
+      />
+      <!-- <label>Vegan</label><br /> -->
+      <div class="field">
+        <div class="form-check">
+          <input
+            id="vegan"
+            class="form-check-input"
+            type="radio"
+            formControlName="vegan"
+            [value]="true"
+          />
+          <label class="form-check-label" for="vegan"> Vegan </label>
+        </div>
+        <div class="form-check">
+          <input
+            id="not-vegan"
+            class="form-check-input"
+            type="radio"
+            formControlName="vegan"
+            [value]="false"
+          />
+          <label class="form-check-label" for="not-vegan"> Not Vegan </label>
+        </div>
+      </div>
+      <label>Price</label
+      ><input
+        class="form-control"
+        type="number"
+        formControlName="price"
+        id="task{{ i }}"
+      />
+      <a class="btn btn-danger" (click)="removeMenuItem(i)">Remove Plate</a>
+    </div>
+
+    <a class="btn btn-primary" (click)="addNewItem()">Add Plate</a>
+  </div>
+
+  <!-- IMAGE GOES HERE -->
+
+  <!-- <label>Image</label> -->
+  <!-- <input -->
+  <!--   class="form-control" -->
+  <!--   type="file" -->
+  <!--   formControlName="image" -->
+  <!--   [class.is-invalid]="image.invalid && image.touched" -->
+  <!--   #fileInput -->
+  <!-- /> -->
+
+  <button class="btn btn-primary" [disabled]="!kitchenForm.valid" type="submit">
+    Submit
+  </button>
+</form>

@@ -1,0 +1,17 @@
+<h1>
+    Providers Form
+</h1>
+<form [formGroup]="providersForm" (ngSubmit)="next(providersForm)">
+    <label for="addText">Name </label>
+    <input type="text" formControlName="name">
+    <label for="addText">email </label>
+    <input type="text" formControlName="email">
+    <label for="addText">ID </label>
+    <input type="number" formControlName="id">
+    <label for="addText">Password </label>
+    <input type="password" formControlName="password">
+    <label for="addText">Confirm Password </label>
+    <input type="password" formControlName="passwordConfirm">
+    <br>
+    <button type="submit">submit</button>
+</form>

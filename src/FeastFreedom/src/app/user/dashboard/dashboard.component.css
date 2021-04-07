@@ -1,0 +1,32 @@
+ngb-carousel {
+  width: 100vw;
+  /* max-height: 40vh; */
+  overflow: hidden;
+}
+ngb-carousel .picsum-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 50vh;
+}
+
+ngb-carousel img {
+  width: 100%;
+}
+
+ngb-carousel > * {
+  border: red 1px solid;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  width: 100%;
+  justify-content: space-evenly;
+  width: 80vw;
+}
+.dashboard-container > * {
+  margin: 0.5rem;
+}

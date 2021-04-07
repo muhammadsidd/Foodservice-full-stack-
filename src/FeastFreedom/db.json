@@ -1,0 +1,296 @@
+{
+  "kitchens": [
+    {
+      "id": 1,
+      "name": "Kitchen 1",
+      "email": "kitchen1@gmail.com",
+      "working_days": [
+        {
+          "day": "monday",
+          "start_time": "9am",
+          "end_time": "9pm"
+        },
+        {
+          "day": "tuesday",
+          "start_time": "9am",
+          "end_time": "9pm"
+        },
+        {
+          "day": "wendnesday",
+          "start_time": "9am",
+          "end_time": "9pm"
+        },
+        {
+          "day": "thursday",
+          "start_time": "9am",
+          "end_time": "9pm"
+        },
+        {
+          "day": "friday",
+          "start_time": "9am",
+          "end_time": "9pm"
+        }
+      ],
+      "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frbldi.com%2Fwp-content%2Fuploads%2F2016%2F11%2Fioc-cape_restaurant-04.jpg&f=1&nofb=1",
+      "featured": true,
+      "menu": [
+        {
+          "id": 1,
+          "name": "Plate 1",
+          "vegan": true,
+          "price": 10
+        },
+        {
+          "id": 2,
+          "name": "Plate 2",
+          "vegan": false,
+          "price": 10
+        }
+      ],
+      "orders": []
+    },
+    {
+      "id": 2,
+      "name": "Kitchen 2",
+      "email": "kitchen1@gmail.com",
+      "working_days": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frbldi.com%2Fwp-content%2Fuploads%2F2016%2F11%2Fioc-cape_restaurant-04.jpg&f=1&nofb=1",
+      "featured": false,
+      "menu": [
+        {
+          "id": 1,
+          "name": "Plate 1",
+          "vegan": true,
+          "price": 10
+        },
+        {
+          "id": 2,
+          "name": "Plate 2",
+          "vegan": false,
+          "price": 10
+        }
+      ],
+      "orders": []
+    },
+    {
+      "id": 3,
+      "name": "Kitchen 3",
+      "email": "kitchen1@gmail.com",
+      "working_days": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frbldi.com%2Fwp-content%2Fuploads%2F2016%2F11%2Fioc-cape_restaurant-04.jpg&f=1&nofb=1",
+      "featured": true,
+      "menu": [
+        {
+          "id": 1,
+          "name": "Plate 1",
+          "description": "Description",
+          "price": 10
+        },
+        {
+          "id": 2,
+          "name": "Plate 2",
+          "description": "Description",
+          "price": 10
+        }
+      ],
+      "orders": []
+    },
+    {
+      "id": 4,
+      "name": "Kitchen 4",
+      "email": "kitchen1@gmail.com",
+      "working_days": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frbldi.com%2Fwp-content%2Fuploads%2F2016%2F11%2Fioc-cape_restaurant-04.jpg&f=1&nofb=1",
+      "featured": false,
+      "menu": [
+        {
+          "id": 1,
+          "name": "Plate 1",
+          "vegan": true,
+          "price": 10
+        },
+        {
+          "id": 2,
+          "name": "Plate 2",
+          "vegan": false,
+          "price": 10
+        }
+      ],
+      "orders": []
+    },
+    {
+      "id": 5,
+      "name": "Kitchen 5",
+      "email": "kitchen1@gmail.com",
+      "working_days": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frbldi.com%2Fwp-content%2Fuploads%2F2016%2F11%2Fioc-cape_restaurant-04.jpg&f=1&nofb=1",
+      "featured": false,
+      "menu": [
+        {
+          "id": 1,
+          "name": "Plate 1",
+          "vegan": true,
+          "price": 10
+        },
+        {
+          "id": 2,
+          "name": "Plate 2",
+          "vegan": false,
+          "price": 10
+        }
+      ],
+      "orders": []
+    },
+    {
+      "id": 6,
+      "name": "Kitchen 6",
+      "email": "kitchen1@gmail.com",
+      "working_days": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frbldi.com%2Fwp-content%2Fuploads%2F2016%2F11%2Fioc-cape_restaurant-04.jpg&f=1&nofb=1",
+      "featured": false,
+      "menu": [
+        {
+          "id": 1,
+          "name": "Plate 1",
+          "vegan": true,
+          "price": 10
+        },
+        {
+          "id": 2,
+          "name": "Plate 2",
+          "vegan": false,
+          "price": 10
+        }
+      ],
+      "orders": []
+    },
+    {
+      "id": 7,
+      "name": "Kitchen 7",
+      "email": "kitchen1@gmail.com",
+      "working_days": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frbldi.com%2Fwp-content%2Fuploads%2F2016%2F11%2Fioc-cape_restaurant-04.jpg&f=1&nofb=1",
+      "featured": true,
+      "menu": [
+        {
+          "id": 1,
+          "name": "Plate 1",
+          "vegan": true,
+          "price": 10
+        },
+        {
+          "id": 2,
+          "name": "Plate 2",
+          "vegan": false,
+          "price": 10
+        }
+      ],
+      "orders": []
+    },
+    {
+      "id": 8,
+      "name": "Kitchen 8",
+      "email": "kitchen1@gmail.com",
+      "working_days": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frbldi.com%2Fwp-content%2Fuploads%2F2016%2F11%2Fioc-cape_restaurant-04.jpg&f=1&nofb=1",
+      "featured": true,
+      "menu": [
+        {
+          "id": 1,
+          "name": "Plate 1",
+          "vegan": true,
+          "price": 10
+        },
+        {
+          "id": 2,
+          "name": "Plate 2",
+          "vegan": false,
+          "price": 10
+        }
+      ],
+      "orders": []
+    }
+  ],
+  "orders": [
+    {
+      "id": 1617777703220,
+      "kitchen_id": 44,
+      "user_id": 2,
+      "items": [
+        {
+          "count": 1,
+          "name": "Chow Mein"
+        },
+        {
+          "count": 0,
+          "name": "Fried Rice"
+        },
+        {
+          "count": 0,
+          "name": "Super Greens"
+        },
+        {
+          "count": 1,
+          "name": "White Steamed Rice"
+        }
+      ],
+      "total": 20.98
+    }
+  ]
+}

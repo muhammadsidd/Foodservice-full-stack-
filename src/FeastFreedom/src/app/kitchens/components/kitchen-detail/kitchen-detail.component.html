@@ -1,0 +1,46 @@
+<div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div>
+<div *ngIf="kitchen">
+  <h2>{{ kitchen.name }}</h2>
+  <img [src]="kitchen.image" />
+  <ul class="py-3">
+    <li><b>ID:</b> {{ kitchen.user.id }}</li>
+    <li>
+      <b>Owner:</b> {{ kitchen.user.first_name }} {{ kitchen.user.last_name }}
+    </li>
+    <li><b>Phone Number:</b> {{ kitchen.user.phone_number }}</li>
+    <li><b>Email:</b> {{ kitchen.user.email }}</li>
+    <li>
+      <b>Address:</b> {{ kitchen.user.address }}, {{ kitchen.user.city }},
+      {{ kitchen.user.state }} {{ kitchen.user.zip_code }}
+    </li>
+    <li><b>Featured:</b> {{ kitchen.featured ? "Yes" : "No" }}</li>
+  </ul>
+
+  <h3>Hours</h3>
+  <ul>
+    <li *ngFor="let workday of kitchen.workdays">
+      <b>{{ workday.day }}:</b> {{ workday.start_time }} -
+      {{ workday.end_time }}
+    </li>
+  </ul>
+
+  <h3>Menu</h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td><b>Name</b></td>
+        <td><b>Vegan</b></td>
+        <td><b>Price</b></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of kitchen.menu">
+        <td>{{ item.name }}</td>
+        <td>{{ item.vegan ? "Yes" : "No" }}</td>
+        <td>{{ item.price | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button class="btn btn-primary mt-4" (click)="kitchenList()">Back</button>

@@ -1,0 +1,13 @@
+<p>Kitchen User Information</p>
+<div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+<div *ngIf="kitchenUser">
+    <ul>
+        <li><b>ID:</b> {{kitchenUser.id}}</li>
+        <li><b>Username:</b> {{kitchenUser.username}}</li>
+        <li><b>First Name</b> {{kitchenUser.first_name}}</li>
+        <li><b>Last Name</b> {{kitchenUser.last_name}}</li>
+        <li><b>Email:</b> {{kitchenUser.email}}</li>
+    </ul>
+</div>
+
+<button (click)="kitchenUserList()">Back</button>

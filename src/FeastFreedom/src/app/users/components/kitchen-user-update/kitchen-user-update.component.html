@@ -1,0 +1,155 @@
+<h2>Update Kitchen User</h2>
+<div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+<form *ngIf="kitchenUserForm" [formGroup]="kitchenUserForm" (ngSubmit)="onSubmit(kitchenUserForm)">
+
+    <label>Username</label>
+    <input class="form-control" type="text" formControlName="username" [class.is-invalid]="username.invalid && username.touched">
+    <div *ngIf="username.errors && username.touched">
+        <div class="alert alert-danger" *ngIf="username.errors?.required">Username is required.</div>
+        <div class="alert alert-danger" *ngIf="username.errors?.minlength">Username must be at least 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="username.errors?.maxlength">Username must be at most 150 characters.</div>
+        <div class="alert alert-danger" *ngIf="username.errors?.pattern">Username may contain only letters, numbers, and @.+-_ characters.</div>
+    </div>
+
+    <!--<label>Password</label>
+    <input class="form-control" type="password" formControlName="password" [class.is-invalid]="password.invalid && password.touched">
+    <div *ngIf="password.errors && password.touched">
+        <div class="alert alert-danger" *ngIf="password.errors?.required">Password is required.</div>
+        <div class="alert alert-danger" *ngIf="password.errors?.minlength">Password must be at least 8 characters.</div>
+        <div class="alert alert-danger" *ngIf="password.errors?.maxlength">Password must be at most 150 characters.</div>
+        <div class="alert alert-danger" *ngIf="password.errors?.pattern">Password may contain only letters, numbers, and/or !@#$%^&*()</div>
+    </div>-->
+
+    <label>First Name</label>
+    <input class="form-control" type="text" formControlName="first_name" [class.is-invalid]="first_name.invalid && first_name.touched">
+    <div *ngIf="first_name.errors && first_name.touched">
+        <div class="alert alert-danger" *ngIf="first_name.errors?.required">First Name is required.</div>
+        <div class="alert alert-danger" *ngIf="first_name.errors?.minlength">First Name must be at least 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="first_name.errors?.maxlength">First Name must be at most 30 characters.</div>
+        <div class="alert alert-danger" *ngIf="first_name.errors?.pattern">First Name may contain only letters, including - and ' characters.</div>
+    </div>
+
+    <label>Last Name</label>
+    <input class="form-control" type="text" formControlName="last_name" [class.is-invalid]="last_name.invalid && last_name.touched">
+    <div *ngIf="last_name.errors && last_name.touched">
+        <div class="alert alert-danger" *ngIf="last_name.errors?.required">Last Name is required.</div>
+        <div class="alert alert-danger" *ngIf="last_name.errors?.minlength">Last Name must be at least 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="last_name.errors?.maxlength">Last Name must be at most 30 characters.</div>
+        <div class="alert alert-danger" *ngIf="last_name.errors?.pattern">Last Name may contain only letters, including - and ' characters.</div>
+    </div>
+
+    <label>Email</label>
+    <input class="form-control" type="text" formControlName="email" [class.is-invalid]="email.invalid && email.touched">
+    <div *ngIf="email.errors && email.touched">
+        <div class="alert alert-danger" *ngIf="email.errors?.required">Email is required.</div>
+        <div class="alert alert-danger" *ngIf="email.errors?.minlength">Email must be at least 8 characters.</div>
+        <div class="alert alert-danger" *ngIf="email.errors?.maxlength">Email must be at most 50 characters.</div>
+        <div class="alert alert-danger" *ngIf="email.errors?.pattern">Please insert a valid email address.</div>
+    </div>
+
+    <label>Phone Number</label>
+    <input class="form-control" type="text" formControlName="phone_number" [class.is-invalid]="phone_number.invalid && phone_number.touched">
+    <div *ngIf="phone_number.errors && phone_number.touched">
+        <div class="alert alert-danger" *ngIf="phone_number.errors?.required">Phone Number is required.</div>
+        <div class="alert alert-danger" *ngIf="phone_number.errors?.minlength">Phone Number must be at least 3 characters.</div>
+        <div class="alert alert-danger" *ngIf="phone_number.errors?.maxlength">Phone Number must be at most 12 characters.</div>
+        <div class="alert alert-danger" *ngIf="phone_number.errors?.pattern">Phone number must be in the following format: XXX-XXX-XXXX</div>
+    </div>
+
+    <label>Address</label>
+    <input class="form-control" type="text" formControlName="address" [class.is-invalid]="address.invalid && address.touched">
+    <div *ngIf="address.errors && address.touched">
+        <div class="alert alert-danger" *ngIf="address.errors?.required">Address is required.</div>
+        <div class="alert alert-danger" *ngIf="address.errors?.minlength">Address must be at least 3 characters.</div>
+        <div class="alert alert-danger" *ngIf="address.errors?.maxlength">Address must be at most 40 characters.</div>
+        <div class="alert alert-danger" *ngIf="address.errors?.pattern">Please enter a valid street address.</div>
+    </div>
+
+    <label>City</label>
+    <input class="form-control" type="text" formControlName="city" [class.is-invalid]="city.invalid && city.touched">
+    <div *ngIf="city.errors && city.touched">
+        <div class="alert alert-danger" *ngIf="city.errors?.required">City is required.</div>
+        <div class="alert alert-danger" *ngIf="city.errors?.minlength">City must be at least 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="city.errors?.maxlength">City must be at most 25 characters.</div>
+        <div class="alert alert-danger" *ngIf="city.errors?.pattern">City may contain only letters, spaces, and the -.' characters.</div>
+    </div>
+
+    <label>State</label>
+    <input class="form-control" type="text" formControlName="state" [class.is-invalid]="state.invalid && state.touched">
+    <div *ngIf="state.errors && state.touched">
+        <div class="alert alert-danger" *ngIf="state.errors?.required">State is required.</div>
+        <div class="alert alert-danger" *ngIf="state.errors?.minlength">State must be at least 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="state.errors?.maxlength">State must be at most 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="state.errors?.pattern">Please use the abbreviation for your state (AZ, CA, NJ, etc.).</div>
+    </div>
+
+    <label>ZIP Code</label>
+    <input class="form-control" type="text" formControlName="zip_code" [class.is-invalid]="zip_code.invalid && zip_code.touched">
+    <div *ngIf="zip_code.errors && zip_code.touched">
+        <div class="alert alert-danger" *ngIf="zip_code.errors?.required">ZIP Code is required.</div>
+        <div class="alert alert-danger" *ngIf="zip_code.errors?.minlength">ZIP Code must be at least 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="zip_code.errors?.maxlength">ZIP Code must be at most 30 characters.</div>
+        <div class="alert alert-danger" *ngIf="zip_code.errors?.pattern">Please enter a valid ZIP Code.</div>
+    </div>
+
+    <label>Security Question #1</label>
+    <select class="form-control" formControlName="question_one" [class.is-invalid]="question_one.invalid && question_one.touched">
+        <option value="What was your childhood nickname?">What was your childhood nickname?</option>
+        <option value="What town/city did you live in as a child?">What town/city did you live in as a child?</option>
+        <option value="What primary school did you attend?">What primary school did you attend?</option>
+        <option value="What high school did you graduate from?">What high school did you graduate from?</option>
+        <option value="What is your favorite movie?">What is your favorite movie?</option>
+        <option value="What is your favorite song?">What is your favorite song?</option>
+        <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+        <option value="What is the name of your first pet?">What is the name of your first pet?</option>
+        <option value="What is your oldest sibling's name, excluding yourself?">What is your oldest sibling's name, excluding yourself?</option>
+    </select>
+    <div *ngIf="question_one.errors && question_one.touched">
+        <div class="alert alert-danger" *ngIf="question_one.errors?.required">Question 1 is required.</div>
+        <div class="alert alert-danger" *ngIf="question_one.errors?.minlength">Question 1 must be at least 20 characters.</div>
+        <div class="alert alert-danger" *ngIf="question_one.errors?.maxlength">Question 1 must be at most 80 characters.</div>
+        <div class="alert alert-danger" *ngIf="question_one.errors?.pattern">Please insert a valid security question.</div>
+    </div>
+
+    <label>Answer #1</label>
+    <input class="form-control" type="text" formControlName="answer_one" [class.is-invalid]="answer_one.invalid && answer_one.touched">
+    <div *ngIf="answer_one.errors && answer_one.touched">
+        <div class="alert alert-danger" *ngIf="answer_one.errors?.required">Answer 1 is required.</div>
+        <div class="alert alert-danger" *ngIf="answer_one.errors?.minlength">Answer 1 must be at least 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="answer_one.errors?.maxlength">Answer 1 must be at most 50 characters.</div>
+        <div class="alert alert-danger" *ngIf="answer_one.errors?.pattern">Please insert a valid answer.</div>
+    </div>
+
+    <label>Security Question #2</label>
+    <select class="form-control" formControlName="question_two" [class.is-invalid]="question_two.invalid && question_two.touched">
+        <option value="What was your childhood nickname?">What was your childhood nickname?</option>
+        <option value="What town/city did you live in as a child?">What town/city did you live in as a child?</option>
+        <option value="What primary school did you attend?">What primary school did you attend?</option>
+        <option value="What high school did you graduate from?">What high school did you graduate from?</option>
+        <option value="What is your favorite movie?">What is your favorite movie?</option>
+        <option value="What is your favorite song?">What is your favorite song?</option>
+        <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+        <option value="What is the name of your first pet?">What is the name of your first pet?</option>
+        <option value="What is your oldest sibling's name, excluding yourself?">What is your oldest sibling's name, excluding yourself?</option>
+    </select>
+    <div *ngIf="question_two.errors && question_two.touched">
+        <div class="alert alert-danger" *ngIf="question_two.errors?.required">Question 2 is required.</div>
+        <div class="alert alert-danger" *ngIf="question_two.errors?.minlength">Question 2 must be at least 20 characters.</div>
+        <div class="alert alert-danger" *ngIf="question_two.errors?.maxlength">Question 2 must be at most 80 characters.</div>
+        <div class="alert alert-danger" *ngIf="question_two.errors?.pattern">Please insert a valid security question.</div>
+    </div>
+
+    <label>Answer #2</label>
+    <input class="form-control" type="text" formControlName="answer_two" [class.is-invalid]="answer_two.invalid && answer_two.touched">
+    <div *ngIf="answer_two.errors && answer_two.touched">
+        <div class="alert alert-danger" *ngIf="answer_two.errors?.required">Answer 2 is required.</div>
+        <div class="alert alert-danger" *ngIf="answer_two.errors?.minlength">Answer 2 must be at least 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="answer_two.errors?.maxlength">Answer 2 must be at most 50 characters.</div>
+        <div class="alert alert-danger" *ngIf="answer_two.errors?.pattern">Please insert a valid answer.</div>
+    </div>
+    <br>
+
+    <button class="btn btn-primary" [disabled]="kitchenUserForm.invalid" type="submit">Submit</button>
+</form>
+
+<button class="btn btn-default mt-4" (click)="kitchenUsersList()">Back</button>

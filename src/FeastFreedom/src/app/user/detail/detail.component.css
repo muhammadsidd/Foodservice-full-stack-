@@ -1,0 +1,51 @@
+h1 {
+  text-align: center;
+  margin: 0 0 3rem 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.order {
+  margin-left: 1rem;
+}
+button,
+button:hover,
+button:focus,
+button:active {
+  text-decoration: none;
+  height: 1.5rem;
+  padding: 0 0.75rem;
+}
+
+ul {
+  width: 400px;
+}
+
+li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total {
+  margin-top: 3rem;
+}
+
+img {
+  width: 1rem;
+}
+
+.not-vegan {
+  width: 0.8rem;
+  filter: grayscale(100%);
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}

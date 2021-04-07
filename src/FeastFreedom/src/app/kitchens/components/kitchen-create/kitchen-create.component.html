@@ -1,0 +1,60 @@
+<h2>Register Kitchen</h2>
+<div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+<form enctype="multipart/form-data" *ngIf="kitchenForm" [formGroup]="kitchenForm" (ngSubmit)="onSubmit(kitchenForm)">
+
+    <label>Name</label>
+    <input class="form-control" type="text" formControlName="name" [class.is-invalid]="name.invalid && name.touched">
+    <div *ngIf="name.errors && name.touched">
+        <div class="alert alert-danger" *ngIf="name.errors?.required">Name is required.</div>
+        <div class="alert alert-danger" *ngIf="name.errors?.minlength">Name must be at least 2 characters.</div>
+        <div class="alert alert-danger" *ngIf="name.errors?.maxlength">Name must be at most 50 characters.</div>
+        <div class="alert alert-danger" *ngIf="name.errors?.pattern">Name may contain only letters, numbers, and/or :,'&@-</div>
+    </div>
+
+    <button class="btn btn-primary mt-4" (click)="addWorkDay()">Add Work Day</button>
+    <ng-container class="mb-4" formArrayName="workdays">
+        <div class="mb-4" *ngFor="let workday of workdays.controls; index as index">
+            <ng-container [formGroupName]="index">
+                <label>Day</label>
+                <select class="form-control" formControlName="day">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+
+                <label>Start Time</label>
+                <input class="form-control" type="text" formControlName="start_time">
+
+                <label>End Time</label>
+                <input class="form-control" type="text" formControlName="end_time">
+            </ng-container>
+            <button class="btn btn-danger mt-4" (click)="removeWorkDay(index)">Remove Work Day</button>
+        </div>
+        <br>
+    </ng-container>
+
+    <button class="btn btn-primary mt-4" (click)="addMenuItem()">Add Menu Item</button>
+    <ng-container class="mb-4" formArrayName="menu">
+        <div class="mb-4" *ngFor="let item of menu.controls; index as index">
+            <ng-container [formGroupName]="index">
+                <label>Name</label>
+                <input class="form-control" type="text" formControlName="name">
+
+                <label>Vegan</label>
+                <input class="form-control" type="checkbox" formControlName="vegan">
+
+                <label>Price</label>
+                <input class="form-control" type="number" formControlName="price">
+            </ng-container>
+            <button class="btn btn-danger mt-4" (click)="removeMenuItem(index)">Remove Menu Item</button>
+        </div>
+    </ng-container>
+    
+    <br>
+
+    <button class="btn btn-primary" [disabled]="kitchenForm.invalid" type="submit">Submit</button>
+</form>

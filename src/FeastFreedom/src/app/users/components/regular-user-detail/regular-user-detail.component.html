@@ -1,0 +1,13 @@
+<p>User Information</p>
+<div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+<div *ngIf="regularUser">
+    <ul>
+        <li><b>ID:</b> {{regularUser.id}}</li>
+        <li><b>Username:</b> {{regularUser.username}}</li>
+        <li><b>First Name</b> {{regularUser.first_name}}</li>
+        <li><b>Last Name</b> {{regularUser.last_name}}</li>
+        <li><b>Email:</b> {{regularUser.email}}</li>
+    </ul>
+</div>
+
+<button (click)="regularUserList()">Back</button>
